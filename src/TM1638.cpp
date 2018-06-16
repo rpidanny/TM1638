@@ -21,7 +21,7 @@ TM1638::TM1638(uint8_t cs, uint8_t dio, uint8_t clk) {
 /**
  * @brief Setups the Pins, SPI and Display
  */
-bool TM1638::begin() {
+void TM1638::begin() {
   pinMode(_cs, OUTPUT);
   
   if (_SPI) {
