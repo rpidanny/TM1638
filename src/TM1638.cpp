@@ -177,6 +177,7 @@ void TM1638::led(uint8_t position, uint8_t status) {
 /**
  * @brief Read Button Values
  * @param position The button position (0 - 7)
+ * @return The status of the button.
  */
 uint8_t TM1638::readButton(uint8_t position) {
   uint8_t buttons = 0;
