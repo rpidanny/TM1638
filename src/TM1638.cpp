@@ -4,6 +4,12 @@
 
 unsigned char digits[10] = {0x3f, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
 
+/**
+ * @brief Instantiates a new TM1638 class.
+ * @param cs The CS / LOAD pin number.
+ * @param dio The DIO pin number if SPI not used, else not required.
+ * @param clk The CLK pin number if SPI not used, else not required.
+ */
 TM1638::TM1638(uint8_t cs, uint8_t dio, uint8_t clk) {
   _display_number = 8;
   _cs = cs;
@@ -12,6 +18,9 @@ TM1638::TM1638(uint8_t cs, uint8_t dio, uint8_t clk) {
   _SPI = ( _dio | _clk) == 0;
 }
 
+/**
+ * @brief Setups the Pins, SPI and Display
+ */
 bool TM1638::begin() {
   pinMode(_cs, OUTPUT);
   
@@ -165,6 +174,10 @@ void TM1638::led(uint8_t position, uint8_t status) {
 }
 
 // TODO: Read buttons
+/**
+ * @brief Read Button Values
+ * @param position The button position (0 - 7)
+ */
 uint8_t TM1638::readButton(uint8_t position) {
   uint8_t buttons = 0;
 }
