@@ -14,7 +14,7 @@ before_install:
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/TM1638
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Random.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Random/Random.ino
 after_success:
   - source <(curl -SLs  https://raw.githubusercontent.com/rpidanny/travis-ci-arduino/master/doxy_gen_and_deploy.sh)
 notifications:
