@@ -6,7 +6,7 @@
 class TM1638 {
   public:
     TM1638(uint8_t cs, uint8_t dio = 0, uint8_t clk = 0);
-    bool begin();
+    void begin();
     void reset();
     void setBrightness(uint8_t brightness);
     
