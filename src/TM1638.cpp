@@ -4,12 +4,12 @@
 
 unsigned char digits[10] = {0x3f, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
 
-TM1638::TM1638(uint8_t loadPin, uint8_t din, uint8_t clk) {
+TM1638::TM1638(uint8_t cs, uint8_t dio, uint8_t clk) {
   _display_number = 8;
-  _cs = loadPin;
-  _din = din;
+  _cs = cs;
+  _dio = dio;
   _clk = clk;
-  _SPI = ( _din | _clk) == 0;
+  _SPI = ( _dio | _clk) == 0;
 }
 
 bool TM1638::begin() {
@@ -20,17 +20,17 @@ bool TM1638::begin() {
     SPI.begin();
   } else {
     pinMode(_clk, OUTPUT);
-    pinMode(_din, OUTPUT);
+    pinMode(_dio, OUTPUT);
   }
 
-  setBrightness(1);
+  setBrightness(0x01);
   reset();
   // for randomness
   randomSeed(random(100));
 }
 
 /**
- * Transfers a byte of data.
+ * @brief Transfers a byte of data.
  * 
  * @param value Value to store in the register
  */
@@ -39,12 +39,12 @@ void TM1638::transfer(uint8_t value) {
   if (_SPI)
     SPI.transfer(value);
   else
-    shiftOut(_din, _clk, LSBFIRST, value);
+    shiftOut(_dio, _clk, LSBFIRST, value);
   digitalWrite(_cs, HIGH);
 }
 
 /**
- * Transfers data to a address.
+ * @brief Transfers data to a address.
  * 
  * @param address The register to load data into
  * @param value Value to store in the register
@@ -55,14 +55,14 @@ void TM1638::transfer(uint8_t address, uint8_t value) {
     SPI.transfer(address);
     SPI.transfer(value);
   } else {
-    shiftOut(_din, _clk, LSBFIRST, address);
-    shiftOut(_din, _clk, LSBFIRST, value);
+    shiftOut(_dio, _clk, LSBFIRST, address);
+    shiftOut(_dio, _clk, LSBFIRST, value);
   }
   digitalWrite(_cs, HIGH);
 }
 
 /**
- * Writes a byte of data to a MAX7219/MAX7221's register.
+ * @brief Writes a byte of data to a TM1638's register.
  * 
  * @param address The register to load data into
  * @param value Value to store in the register
@@ -73,6 +73,10 @@ void TM1638::writeToAddr(uint8_t address, uint8_t value) {
   transfer(address, value);
 }
 
+/**
+ * @brief Set the display brightness.
+ * @param brightness Brightness intensity from 0 - 7
+ */ 
 void TM1638::setBrightness(uint8_t brightness) {
   if (brightness > 7 ) {
     transfer(0x8f);
@@ -81,17 +85,32 @@ void TM1638::setBrightness(uint8_t brightness) {
   }
 }
 
+/**
+ * @brief Resets all 16 registers of TM1638
+ */
 void TM1638::reset() {
   transfer(0x40); // auto increment mode
   digitalWrite(_cs, LOW);
-  SPI.transfer(0xc0);
-  for(uint8_t i = 0; i < 16; i++)
-  {
-    SPI.transfer(0x00);
+  if (_SPI) {
+    SPI.transfer(0xc0);
+    for(uint8_t i = 0; i < 16; i++)
+    {
+      SPI.transfer(0x00);
+      shiftOut(_dio, _clk, LSBFIRST, 0x00);
+    }
+  } else {
+    shiftOut(_dio, _clk, LSBFIRST, 0xc0);    
+    for(uint8_t i = 0; i < 16; i++)
+    {
+      shiftOut(_dio, _clk, LSBFIRST, 0x00);
+    }
   }
   digitalWrite(_cs, HIGH);
 }
 
+/**
+ * @brief Clear all digits of 7Segment Display.
+ */
 void TM1638::clearDisplay() {
   for(uint8_t i=0; i < _display_number; i++) {
     writeToAddr(0xc0 + (i << 1), 0);

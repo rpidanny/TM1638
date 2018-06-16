@@ -5,7 +5,7 @@
 
 class TM1638 {
   public:
-    TM1638(uint8_t loadPin, uint8_t din = 0, uint8_t clk = 0);
+    TM1638(uint8_t cs, uint8_t dio = 0, uint8_t clk = 0);
     bool begin();
     void reset();
     void setBrightness(uint8_t brightness);
@@ -30,7 +30,7 @@ class TM1638 {
     bool _SPI;
     uint8_t _display_number;
     uint8_t _cs;
-    uint8_t _din;
+    uint8_t _dio;
     uint8_t _clk;
 };
 
