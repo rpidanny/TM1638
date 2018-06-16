@@ -117,10 +117,20 @@ void TM1638::clearDisplay() {
   }
 }
 
+/**
+ * @brief Print a digit.
+ * @param pos The display to print on.
+ * @param value The digit to print.
+ */
 void TM1638::printDigit(uint8_t pos, uint8_t value) {
   writeToAddr(0xc0 + (pos << 1), digits[value]);
 }
 
+// TODO: support signed integer
+/**
+ * @brief Prints a number to the display.
+ * @param value A 16bit unsigned integer.
+ */
 void TM1638::printInt(uint16_t value) {
   clearDisplay();
   uint32_t tmp = value;
@@ -132,6 +142,11 @@ void TM1638::printInt(uint16_t value) {
   }while(tmp>0 && count > -1);
 }
 
+// TODO: support signed integer
+/**
+ * @brief Prints a number with animation.
+ * @param value A 16bit unsigned integer.
+ */
 void TM1638::print(uint16_t value) {
   for(uint8_t i=0; i < 5; i++) {
     printInt(random(0, 65535));
@@ -140,10 +155,16 @@ void TM1638::print(uint16_t value) {
   printInt(value);
 }
 
+/**
+ * @brief LED Control
+ * @param position The position of the LED.
+ * @param status 0 for OFF, 1 for ON
+ */
 void TM1638::led(uint8_t position, uint8_t status) {
   writeToAddr(0xc1 + (position << 1), status);
 }
 
+// TODO: Read buttons
 uint8_t TM1638::readButton(uint8_t position) {
   uint8_t buttons = 0;
 }
