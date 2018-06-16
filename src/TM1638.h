@@ -3,6 +3,18 @@
 
 #include <SPI.h>
 
+/*!
+ * \class TM1638
+ * 
+ * \brief TM1638 Library.
+ * 
+ * Small library to be used with TM1638 based boards.
+ * 
+ * \version 0.0.1
+ * 
+ * \date 2018/06/16
+ * 
+ * */
 class TM1638 {
   public:
     TM1638(uint8_t cs, uint8_t dio = 0, uint8_t clk = 0);
