@@ -1,1 +1,1 @@
-# TM1638
+# TM1638 [![Build Status](https://travis-ci.com/rpidanny/TM1638.svg?branch=develop)](https://travis-ci.com/rpidanny/TM1638)
