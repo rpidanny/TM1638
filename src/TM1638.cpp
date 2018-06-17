@@ -236,5 +236,5 @@ uint8_t TM1638::readButton() {
  * @return The status of the button.
  */
 uint8_t TM1638::readButton(uint8_t position) {
-  return (readButton() >> pos) & 0x01;
+  return (readButton() >> position) & 0x01;
 }
