@@ -10,6 +10,6 @@ void setup() {
 }
 
 void loop() {
-  dis.print(random(0, 65535));
+  dis.print(random(-65535, 65535), 5, 100);
   delay(SPEED);
 }
