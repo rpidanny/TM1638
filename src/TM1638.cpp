@@ -187,19 +187,28 @@ void TM1638::print(int value, uint8_t count, uint8_t ms) {
 
 /**
  * @brief LED Control
- * @param position The position of the LED.
- * @param status 0 for OFF, 1 for ON
+ * @param value 8bit data representing 8 Leds.
  */
-void TM1638::led(uint8_t position, uint8_t status) {
-  writeToAddr(0xc1 + (position << 1), status);
+void TM1638::led(uint8_t value) {
+  for (uint8_t i = 0; i < 8; i++ ) {
+    writeToAddr(0xc1 + (i << 1), ((value >> i) & 0x01));
+  }
 }
 
 /**
- * @brief Read Button Status (Doesnt work in SPI mode)
- * @param position The button position (0 - 7)
+ * @brief Individual LED Control
+ * @param position The position of the LED.
+ * @param status 0 for OFF, 1 for ON
+ */
+void TM1638::led(uint8_t position, uint8_t value) {
+  writeToAddr(0xc1 + (position << 1), value);
+}
+
+/**
+ * @brief Read All Button Status (Doesnt work in SPI mode)
  * @return The status of the button.
  */
-uint8_t TM1638::readButton(uint8_t position) {
+uint8_t TM1638::readButton() {
   if (_SPI) {
     return 0x00;
   } else {
@@ -219,4 +228,13 @@ uint8_t TM1638::readButton(uint8_t position) {
     digitalWrite(_cs, LOW);
     return buttons;
   }
+}
+
+/**
+ * @brief Read Button Status (Doesnt work in SPI mode)
+ * @param position The button position (0 - 7)
+ * @return The status of the button.
+ */
+uint8_t TM1638::readButton(uint8_t pos) {
+  return (readButton() >> pos) & 0x01;
 }
