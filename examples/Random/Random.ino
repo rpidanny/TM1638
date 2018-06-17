@@ -9,12 +9,12 @@
 TM1638 disp(LOAD_PIN, DIO, CLK);
 
 void setup() {
-  dis.begin();
+  disp.begin();
 }
 
 void loop() {
   // Use this if you dont want the transition animation
   // dis.print(random(-65535, 65535));
-  dis.print(random(-65535, 65535), 5, 100);
+  disp.print(random(-65535, 65535), 5, 100);
   delay(SPEED);
 }
