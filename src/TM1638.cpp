@@ -200,5 +200,23 @@ void TM1638::led(uint8_t position, uint8_t status) {
  * @return The status of the button.
  */
 uint8_t TM1638::readButton(uint8_t position) {
+  if (_SPI) {
+    return 0x00;
+  } else {
+    uint8_t buttons = 0;
+    digitalWrite(_cs, LOW);
+    // 0x44 puts TM1638 into write mode.
+    shiftOut(_dio, _clk, LSBFIRST, 0x42);
+    pinMode(_dio, INPUT);
 
+    // read 4 bytes from the board
+    // contains status of buttons.
+    for (uint8_t i =0; i < 4; i++) {
+      uint8_t tmp = shiftIn(_dio, _clk, LSBFIRST) << i;
+      buttons |= tmp;
+    }
+    pinMode(_dio, OUTPUT);
+    digitalWrite(_cs, LOW);
+    return buttons;
+  }
 }
