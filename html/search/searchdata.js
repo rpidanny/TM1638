@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "bcprstw",
   1: "t",
   2: "bcprstw",
-  3: "t"
+  3: "ct"
 };
 
 var indexSectionNames =
