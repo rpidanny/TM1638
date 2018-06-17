@@ -30,8 +30,8 @@ class TM1638 {
     void print(int value, uint8_t count, uint8_t ms);
     
     // LED functions
-    void led(uint8_t value);
-    void led(uint8_t position, uint8_t status);
+    void setLed(uint8_t value);
+    void setLed(uint8_t position, uint8_t value);
 
     // Button functions
     uint8_t readButton();

@@ -189,7 +189,7 @@ void TM1638::print(int value, uint8_t count, uint8_t ms) {
  * @brief LED Control
  * @param value 8bit data representing 8 Leds.
  */
-void TM1638::led(uint8_t value) {
+void TM1638::setLed(uint8_t value) {
   for (uint8_t i = 0; i < 8; i++ ) {
     writeToAddr(0xc1 + (i << 1), ((value >> i) & 0x01));
   }
@@ -200,7 +200,7 @@ void TM1638::led(uint8_t value) {
  * @param position The position of the LED.
  * @param status 0 for OFF, 1 for ON
  */
-void TM1638::led(uint8_t position, uint8_t value) {
+void TM1638::setLed(uint8_t position, uint8_t value) {
   writeToAddr(0xc1 + (position << 1), value);
 }
 
