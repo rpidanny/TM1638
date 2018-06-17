@@ -12,6 +12,6 @@ void setup() {
 }
 
 void loop() {
-  disp.led(disp.readButton());
+  disp.setLed(disp.readButton());
   delay(10);
 }
