@@ -194,12 +194,11 @@ void TM1638::led(uint8_t position, uint8_t status) {
   writeToAddr(0xc1 + (position << 1), status);
 }
 
-// TODO: Read buttons
 /**
- * @brief Read Button Values
+ * @brief Read Button Status (Doesnt work in SPI mode)
  * @param position The button position (0 - 7)
  * @return The status of the button.
  */
 uint8_t TM1638::readButton(uint8_t position) {
-  uint8_t buttons = 0;
+
 }
