@@ -198,7 +198,7 @@ void TM1638::setLed(uint8_t value) {
 /**
  * @brief Individual LED Control
  * @param position The position of the LED.
- * @param status 0 for OFF, 1 for ON
+ * @param value 0 for OFF, 1 for ON
  */
 void TM1638::setLed(uint8_t position, uint8_t value) {
   writeToAddr(0xc1 + (position << 1), value);
@@ -235,6 +235,6 @@ uint8_t TM1638::readButton() {
  * @param position The button position (0 - 7)
  * @return The status of the button.
  */
-uint8_t TM1638::readButton(uint8_t pos) {
+uint8_t TM1638::readButton(uint8_t position) {
   return (readButton() >> pos) & 0x01;
 }
