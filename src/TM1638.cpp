@@ -131,7 +131,7 @@ void TM1638::clearDisplay() {
  * @param pos The display to print on.
  * @param value The digit to print.
  */
-void TM1638::printDigit(uint8_t pos, uint8_t value) {
+void TM1638::print(uint8_t pos, uint8_t value) {
   writeToAddr(0xc0 + (pos << 1), digits[value]);
 }
 
@@ -140,12 +140,12 @@ void TM1638::printDigit(uint8_t pos, uint8_t value) {
  * @brief Prints a number to the display.
  * @param value A 16bit unsigned integer.
  */
-void TM1638::printInt(uint16_t value) {
+void TM1638::print(uint16_t value) {
   clearDisplay();
   uint32_t tmp = value;
   uint8_t count = _display_number - 1;
   do{
-    printDigit(count, tmp % 10);
+    print(count, tmp % 10);
     tmp = tmp / 10;
     count --;
   }while(tmp>0 && count > -1);
@@ -155,13 +155,16 @@ void TM1638::printInt(uint16_t value) {
 /**
  * @brief Prints a number with animation.
  * @param value A 16bit unsigned integer.
+ * @param count How many random numbers to print.
+ * @param ms How long to display random numbers.
  */
-void TM1638::print(uint16_t value) {
-  for(uint8_t i=0; i < 5; i++) {
-    printInt(random(0, 65535));
-    delay(8);
+void TM1638::print(uint16_t value, uint8_t count, uint8_t ms) {
+  uint8_t interval = ms / count;
+  for(uint8_t i=0; i < count; i++) {
+    print(random(0, 65535));
+    delay(interval);
   }
-  printInt(value);
+  print(value);
 }
 
 /**
