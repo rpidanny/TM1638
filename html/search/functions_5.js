@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setbrightness',['setBrightness',['../class_t_m1638.html#a8bb2b1073f8f4f43258fc8cabb8eb8a2',1,'TM1638']]]
+  ['tm1638',['TM1638',['../class_t_m1638.html#ae9e9640850beb95f1ebb63ed0ed91265',1,'TM1638']]]
 ];

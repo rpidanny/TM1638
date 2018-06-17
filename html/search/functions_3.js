@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['print',['print',['../class_t_m1638.html#afa5853ea5bd9b2a5aa707ad913fc8916',1,'TM1638::print(int value)'],['../class_t_m1638.html#aa298f5c2b081bd7e893c88bf042b538c',1,'TM1638::print(uint8_t position, uint8_t value)'],['../class_t_m1638.html#abcf5fd71668fabcec10edfad8c97bce9',1,'TM1638::print(int value, uint8_t count, uint8_t ms)']]]
+  ['readbutton',['readButton',['../class_t_m1638.html#a39630bba48c4465c4da384bd861b6325',1,'TM1638::readButton()'],['../class_t_m1638.html#ac8183e2acbe94dbf73e284381bc1c3b9',1,'TM1638::readButton(uint8_t position)']]],
+  ['reset',['reset',['../class_t_m1638.html#af9e7b801eb9c419b8596db9a99ba963c',1,'TM1638']]]
 ];

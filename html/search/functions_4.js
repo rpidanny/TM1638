@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readbutton',['readButton',['../class_t_m1638.html#ac8183e2acbe94dbf73e284381bc1c3b9',1,'TM1638']]],
-  ['reset',['reset',['../class_t_m1638.html#af9e7b801eb9c419b8596db9a99ba963c',1,'TM1638']]]
+  ['setbrightness',['setBrightness',['../class_t_m1638.html#a8bb2b1073f8f4f43258fc8cabb8eb8a2',1,'TM1638']]],
+  ['setled',['setLed',['../class_t_m1638.html#adf3118069e2839b06e125575cf301d9e',1,'TM1638::setLed(uint8_t value)'],['../class_t_m1638.html#aafe36fb33f73eb81ee3bb0664d19f8f5',1,'TM1638::setLed(uint8_t position, uint8_t value)']]]
 ];

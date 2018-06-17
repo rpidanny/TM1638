@@ -103,11 +103,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:abcf5fd71668fabcec10edfad8c97bce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#abcf5fd71668fabcec10edfad8c97bce9">print</a> (int value, uint8_t count, uint8_t ms)</td></tr>
 <tr class="memdesc:abcf5fd71668fabcec10edfad8c97bce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a number with animation.  <a href="#abcf5fd71668fabcec10edfad8c97bce9">More...</a><br /></td></tr>
 <tr class="separator:abcf5fd71668fabcec10edfad8c97bce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4352ce6c7182d59c0b1a99ab715af5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#ad4352ce6c7182d59c0b1a99ab715af5b">led</a> (uint8_t position, uint8_t status)</td></tr>
-<tr class="memdesc:ad4352ce6c7182d59c0b1a99ab715af5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED Control.  <a href="#ad4352ce6c7182d59c0b1a99ab715af5b">More...</a><br /></td></tr>
-<tr class="separator:ad4352ce6c7182d59c0b1a99ab715af5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3118069e2839b06e125575cf301d9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#adf3118069e2839b06e125575cf301d9e">setLed</a> (uint8_t value)</td></tr>
+<tr class="memdesc:adf3118069e2839b06e125575cf301d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED Control.  <a href="#adf3118069e2839b06e125575cf301d9e">More...</a><br /></td></tr>
+<tr class="separator:adf3118069e2839b06e125575cf301d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe36fb33f73eb81ee3bb0664d19f8f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#aafe36fb33f73eb81ee3bb0664d19f8f5">setLed</a> (uint8_t position, uint8_t value)</td></tr>
+<tr class="memdesc:aafe36fb33f73eb81ee3bb0664d19f8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Individual LED Control.  <a href="#aafe36fb33f73eb81ee3bb0664d19f8f5">More...</a><br /></td></tr>
+<tr class="separator:aafe36fb33f73eb81ee3bb0664d19f8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39630bba48c4465c4da384bd861b6325"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#a39630bba48c4465c4da384bd861b6325">readButton</a> ()</td></tr>
+<tr class="memdesc:a39630bba48c4465c4da384bd861b6325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read All Button Status (Doesnt work in SPI mode)  <a href="#a39630bba48c4465c4da384bd861b6325">More...</a><br /></td></tr>
+<tr class="separator:a39630bba48c4465c4da384bd861b6325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8183e2acbe94dbf73e284381bc1c3b9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_m1638.html#ac8183e2acbe94dbf73e284381bc1c3b9">readButton</a> (uint8_t position)</td></tr>
-<tr class="memdesc:ac8183e2acbe94dbf73e284381bc1c3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read Button Values.  <a href="#ac8183e2acbe94dbf73e284381bc1c3b9">More...</a><br /></td></tr>
+<tr class="memdesc:ac8183e2acbe94dbf73e284381bc1c3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read Button Status (Doesnt work in SPI mode)  <a href="#ac8183e2acbe94dbf73e284381bc1c3b9">More...</a><br /></td></tr>
 <tr class="separator:ac8183e2acbe94dbf73e284381bc1c3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -243,7 +249,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Prints a number to the display. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>A 16bit unsigned integer. </td></tr>
+    <tr><td class="paramname">value</td><td>An integer to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -322,7 +328,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Prints a number with animation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>A 16bit unsigned integer. </td></tr>
+    <tr><td class="paramname">value</td><td>An integer. </td></tr>
     <tr><td class="paramname">count</td><td>How many random numbers to print. </td></tr>
     <tr><td class="paramname">ms</td><td>How long to display random numbers. </td></tr>
   </table>
@@ -331,14 +337,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ad4352ce6c7182d59c0b1a99ab715af5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4352ce6c7182d59c0b1a99ab715af5b">&#9670;&nbsp;</a></span>led()</h2>
+<a id="adf3118069e2839b06e125575cf301d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf3118069e2839b06e125575cf301d9e">&#9670;&nbsp;</a></span>setLed() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TM1638::led </td>
+          <td class="memname">void TM1638::setLed </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>LED Control. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>8bit data representing 8 Leds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aafe36fb33f73eb81ee3bb0664d19f8f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe36fb33f73eb81ee3bb0664d19f8f5">&#9670;&nbsp;</a></span>setLed() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TM1638::setLed </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>position</em>, </td>
@@ -347,7 +379,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>status</em>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -357,19 +389,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>LED Control. </p>
+<p>Individual LED Control. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">position</td><td>The position of the LED. </td></tr>
-    <tr><td class="paramname">status</td><td>0 for OFF, 1 for ON </td></tr>
+    <tr><td class="paramname">value</td><td>0 for OFF, 1 for ON </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<a id="a39630bba48c4465c4da384bd861b6325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39630bba48c4465c4da384bd861b6325">&#9670;&nbsp;</a></span>readButton() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t TM1638::readButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read All Button Status (Doesnt work in SPI mode) </p>
+<dl class="section return"><dt>Returns</dt><dd>The status of the button. </dd></dl>
+
+</div>
+</div>
 <a id="ac8183e2acbe94dbf73e284381bc1c3b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8183e2acbe94dbf73e284381bc1c3b9">&#9670;&nbsp;</a></span>readButton()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8183e2acbe94dbf73e284381bc1c3b9">&#9670;&nbsp;</a></span>readButton() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +436,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Read Button Values. </p>
+<p>Read Button Status (Doesnt work in SPI mode) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">position</td><td>The button position (0 - 7) </td></tr>
