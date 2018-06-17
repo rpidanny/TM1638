@@ -3,6 +3,9 @@
 #include <SPI.h>
 
 unsigned char digits[10] = {0x3f, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+unsigned char symbols[1] = {
+  0x40 // '-'
+};
 
 /**
  * @brief Instantiates a new TM1638 class.
@@ -127,6 +130,15 @@ void TM1638::clearDisplay() {
 }
 
 /**
+ * @brief Writes raw byte to display.
+ * @param pos The display to print on.
+ * @param value 8-bit Data.
+ */
+void TM1638::write(uint8_t pos, uint8_t value) {
+  writeToAddr(0xc0 + (pos << 1), value);
+};
+
+/**
  * @brief Print a digit.
  * @param pos The display to print on.
  * @param value The digit to print.
@@ -140,15 +152,21 @@ void TM1638::print(uint8_t pos, uint8_t value) {
  * @brief Prints a number to the display.
  * @param value A 16bit unsigned integer.
  */
-void TM1638::print(uint16_t value) {
+void TM1638::print(int value) {
   clearDisplay();
-  uint32_t tmp = value;
+  bool neg = (value < 0);
+  uint32_t tmp = abs(value);
   uint8_t count = _display_number - 1;
   do{
     print(count, tmp % 10);
     tmp = tmp / 10;
     count --;
   }while(tmp>0 && count > -1);
+  // Display '-' sign
+  if (neg) {
+    count++;
+    write(count, symbols[0]);
+  }
 }
 
 // TODO: support signed integer
@@ -158,7 +176,7 @@ void TM1638::print(uint16_t value) {
  * @param count How many random numbers to print.
  * @param ms How long to display random numbers.
  */
-void TM1638::print(uint16_t value, uint8_t count, uint8_t ms) {
+void TM1638::print(int value, uint8_t count, uint8_t ms) {
   uint8_t interval = ms / count;
   for(uint8_t i=0; i < count; i++) {
     print(random(0, 65535));

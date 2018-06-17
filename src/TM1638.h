@@ -24,9 +24,10 @@ class TM1638 {
     
     // Seven Segment functions
     void clearDisplay();
-    void print(uint16_t value);
-    void print(uint8_t position, uint8_t val);
-    void print(uint16_t value, uint8_t count, uint8_t delay);
+    void write(uint8_t position, uint8_t value);
+    void print(int value);
+    void print(uint8_t position, uint8_t value);
+    void print(int value, uint8_t count, uint8_t ms);
     
     // LED functions
     void led(uint8_t position, uint8_t status);
