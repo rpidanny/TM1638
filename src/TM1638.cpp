@@ -150,7 +150,7 @@ void TM1638::print(uint8_t pos, uint8_t value) {
 // TODO: support signed integer
 /**
  * @brief Prints a number to the display.
- * @param value A 16bit unsigned integer.
+ * @param value An integer to.
  */
 void TM1638::print(int value) {
   clearDisplay();
@@ -172,7 +172,7 @@ void TM1638::print(int value) {
 // TODO: support signed integer
 /**
  * @brief Prints a number with animation.
- * @param value A 16bit unsigned integer.
+ * @param value An integer.
  * @param count How many random numbers to print.
  * @param ms How long to display random numbers.
  */
